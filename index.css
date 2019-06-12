@@ -1,0 +1,50 @@
+html, body {
+    margin: 5px;
+    padding: 0;
+}
+
+div {
+    background-color: black;
+    color: white;
+    margin: 5px;
+    padding: 20px;
+}
+
+.base {
+    background-color: #323232;
+    color: white;
+    padding: 5px;
+}
+
+.lightA {
+    background-color: white;
+    color: #323232;
+}
+
+.lightB {
+    color: #323232;
+}
+
+.date-range-text {
+    width: 20px;
+}
+
+input:disabled {
+    background-color: darkgray;
+}
+
+.calendar-icon {
+    background: white url(icon/calendar.png) no-repeat right;
+}
+
+.from-to-label {
+    width: 150px;
+}
+
+.date-range-select {
+    width: 124px;
+}
+
+.date-range-select {
+    width: 124px;
+}

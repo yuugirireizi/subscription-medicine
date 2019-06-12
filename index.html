@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-bind="http://www.w3.org/1999/xhtml" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue.js Hello world</title>
+    <link rel="stylesheet" href="index.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <p>
+        <label>
+            <input type="radio" name="filter" v-on:click="clickCalendarRadio" v-bind:checked="(model.mode === 1)">
+            <input class="calendar-icon from-to-label" type="text" v-bind:value="model.calendar.fromDate"
+                   v-on:click="clickFromCalendar" readonly>
+            <span>-</span>
+            <input class="calendar-icon from-to-label" type="text" v-bind:value="model.calendar.toDate"
+                   v-on:click="clickToCalendar"
+                   readonly>
+        </label>
+    </p>
+    <p>
+        <label>
+            <input type="radio" name="filter" v-on:click="clickDateRangeRadio" v-bind:checked="(model.mode === 2)">
+            <input class="date-range-text" type="text" maxlength="2" v-model="model.dateRange.fromNumber"
+                   v-on:click="clickFromDateRange" v-bind:disabled="(model.dateRange.fromDate <= 1)">
+            <select class="date-range-select" v-on:click="clickFromDateRange" v-on:change="selectFromDateRange($event.target)">
+                <option v-for="option in options" v-bind:selected="option.id === model.dateRange.fromDate">
+                    {{option.text}}
+                </option>
+            </select>
+            <span>-</span>
+            <input class="date-range-text" type="text" maxlength="2" v-model="model.dateRange.toNumber"
+                   v-on:click="clickToDateRange" v-bind:disabled="(model.dateRange.toDate <= 1)">
+            <select class="date-range-select" v-on:click="clickToDateRange" v-on:change="selectToDateRange($event.target)">
+                <option v-for="option in options" v-bind:selected="option.id === model.dateRange.toDate">
+                    {{option.text}}
+                </option>
+            </select>
+        </label>
+    </p>
+    <p>
+        <label>
+            <span style="width: 20px; display: inline-block;"></span>
+            <input type="button" v-on:click="clickTodayRadio" v-bind:value="message.todayRadioLabel">
+            <input type="button" v-on:click="clickWeekRadio" v-bind:value="message.weekRadioLabel">
+            <input type="button" v-on:click="clickMonthRadio" v-bind:value="message.monthRadioLabel">
+        </label>
+    </p>
+</div>
+
+<script src="index.js"></script>
+</body>
+</html>
